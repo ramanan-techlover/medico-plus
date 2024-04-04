@@ -9,7 +9,7 @@
   <!-- 
     - primary meta tags
   -->
-  <title>medico Plus - home</title>
+  <title>Medico Plus - home</title>
 
   <!-- 
     - favicon
@@ -56,7 +56,7 @@
     <div class="container">
 
       <a href="./index.html" class="logo">
-        <img src="./assets/images/Medicoplus_logo.png" width="136" height="46" alt="Doclab home">
+        <img src="./assets/images/Medicoplus_logo.png" width="136" height="46" alt="Medico Plus home">
       </a>
 
       <nav class="navbar" data-navbar>
@@ -64,7 +64,7 @@
         <div class="navbar-top">
 
           <a href="#" class="logo">
-            <img src="./assets/images/Medicoplus_logo.png" width="136" height="46" alt="Doclab home">
+            <img src="./assets/images/Medicoplus_logo.png" width="136" height="46" alt="Medico Plus home">
           </a>
 
           <button class="nav-close-btn" aria-label="clsoe menu" data-nav-toggler>
@@ -84,15 +84,17 @@
           </li>
 
           <li class="navbar-item">
-            <a href="#" class="navbar-link title-md">Services</a>
+            <a href="#section_article" class="navbar-link title-md">Articles</a>
           </li>
 
           <li class="navbar-item">
-            <a href="blog1.html" class="navbar-link title-md">Blog</a>
+            <a href="#section_page" class="navbar-link title-md">Services</a>
           </li>
 
+
+
           <li class="navbar-item">
-            <a href="#" class="navbar-link title-md">Contact</a>
+            <a href="./sign-in.html" class="navbar-link title-md">Sign-in</a>
           </li>
 
         </ul>
@@ -130,9 +132,6 @@
       <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
         <ion-icon name="menu-outline"></ion-icon>
       </button>
-
-      <a href="#" class="btn has-before title-md">Make Appointment</a>
-
       <div class="overlay" data-nav-toggler data-overlay></div>
 
     </div>
@@ -207,7 +206,7 @@
         - #SERVICE
       -->
 
-      <section class="service" aria-label="service">
+      <section class="service" id="section_page" aria-label="service">
         <div class="container">
           
 
@@ -512,7 +511,7 @@ Our user-friendly portal ensures accessibility for all, offering multilingual su
         - #BLOG
       -->
 
-      <section class="section blog" aria-labelledby="blog-label">
+      <section class="section blog" id="section_article" aria-labelledby="blog-label" >
         <div class="container">
 
           <p class="section-subtitle title-lg text-center" id="blog-label" data-reveal="bottom">
@@ -542,13 +541,12 @@ Our user-friendly portal ensures accessibility for all, offering multilingual su
 
                 </div>
 
-                <h3 class="headline-sm card-title">Could intermittent fasting reduce breast cancer</h3>
+                <h3 class="headline-sm card-title">Eating a dozen eggs per week may not affect your cholesterol, study suggests</h3>
 
                 <time class="title-sm date" datetime="2022-01-28">28 January, 2022</time>
 
                 <p class="card-text">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                  labore et dolore magna aliquyam erat
+                  Recent study results researchers are presenting at the American College of Cardiology’s Annual Scientific Session suggest that eating a dozen fortified eggs a week does not have a significant impact on cholesterol compared to eating two or fewer eggs a week
                 </p>
 
                 <a href="blog1.html" class="btn-text title-lg">Read More</a>
@@ -575,16 +573,15 @@ Our user-friendly portal ensures accessibility for all, offering multilingual su
 
                 </div>
 
-                <h3 class="headline-sm card-title">Give children more autonomy during the pandemic</h3>
+                <h3 class="headline-sm card-title">Heavy drinking may significantly raise heart disease risk, especially for females</h3>
 
                 <time class="title-sm date" datetime="2022-01-28">28 January, 2022</time>
 
                 <p class="card-text">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                  labore et dolore magna aliquyam erat
+                  Cisgender womenTrusted Source are at a higher risk for developing coronary heart disease than men due to size and structural differences in the heart and hormonal changes that happen when a woman ages
                 </p>
 
-                <a href="blog1.html" class="btn-text title-lg">Read More</a>
+                <a href="blog2.html" class="btn-text title-lg">Read More</a>
 
               </div>
             </li>
@@ -608,16 +605,16 @@ Our user-friendly portal ensures accessibility for all, offering multilingual su
 
                 </div>
 
-                <h3 class="headline-sm card-title">How do binge eating and drinking impact the liver?</h3>
+                <h3 class="headline-sm card-title">Getting too little sleep linked to high blood pressure in a body
+                </h3>
 
                 <time class="title-sm date" datetime="2022-01-28">28 January, 2022</time>
 
                 <p class="card-text">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                  labore et dolore magna aliquyam erat
+                  Recent data indicates that sleeping less than seven hours per day increases the likelihood of developing high blood pressure in the future. Adequate sleep is crucial for maintaining cardiovascular health and preventing hypertension
                 </p>
 
-                <a href="blog1.html" class="btn-text title-lg">Read More</a>
+                <a href="blog3.html" class="btn-text title-lg">Read More</a>
 
               </div>
             </li>
@@ -743,23 +740,15 @@ Our user-friendly portal ensures accessibility for all, offering multilingual su
           </li>
 
           <li>
-            <a href="#" class="text footer-link">Conditions</a>
-          </li>
-
-          <li>
-            <a href="#" class="text footer-link">Contact Us</a>
-          </li>
-
-          <li>
-            <a href="#" class="text footer-link">Terms of Use</a>
-          </li>
-
-          <li>
             <a href="pp.html" class="text footer-link">Privacy policy</a>
           </li>
 
           <li>
             <a href="#" class="text footer-link">Join as a Doctor</a>
+          </li>
+
+          <li>
+            <a href="#" class="text footer-link">Terms & Conditions</a>
           </li>
 
         </ul>

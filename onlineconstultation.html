@@ -16,6 +16,8 @@
   -->
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
 
+  <script type="text/javascript" src="https://unpkg.com/webcam-easy@1.1.1/dist/webcam-easy.min.js"></script>
+
   <!-- 
     - google font link
   -->
@@ -37,7 +39,7 @@
 
 </head>
 
-<body id="top">
+<body id="top" style="background-color: rgb(203, 236, 230)">
 
   <!-- 
     - #PRELOADER
@@ -56,7 +58,7 @@
     <div class="container">
 
       <a href="./index.html" class="logo">
-        <img src="./assets/images/Medicoplus_logo.png" width="136" height="46" alt="Doclab home">
+        <img src="./assets/images/Medicoplus_logo.png" width="136" height="46" alt="Medico Plus home">
       </a>
 
       <nav class="navbar" data-navbar>
@@ -64,7 +66,7 @@
         <div class="navbar-top">
 
           <a href="#" class="logo">
-            <img src="./assets/images/Medicoplus_logo.png" width="136" height="46" alt="Doclab home">
+            <img src="./assets/images/Medicoplus_logo.png" width="136" height="46" alt="Medico Plus home">
           </a>
 
           <button class="nav-close-btn" aria-label="clsoe menu" data-nav-toggler>
@@ -84,15 +86,17 @@
           </li>
 
           <li class="navbar-item">
-            <a href="#" class="navbar-link title-md">Services</a>
+            <a href="#section_article" class="navbar-link title-md">Articles</a>
           </li>
 
           <li class="navbar-item">
-            <a href="blog1.html" class="navbar-link title-md">Blog</a>
+            <a href="#section_page" class="navbar-link title-md">Services</a>
           </li>
 
+
+
           <li class="navbar-item">
-            <a href="#" class="navbar-link title-md">Contact</a>
+            <a href="./sign-in.html" class="navbar-link title-md">Sign-in</a>
           </li>
 
         </ul>
@@ -138,19 +142,51 @@
 
 
 <!--Doctors-->
-
 <section class="section listing" aria-labelledby="listing-label" style="background-color: rgb(203, 236, 230)">
-  <div class="container-img">
+  <div class="container">
 
-    <div class="health-card">
-        <h1>APP UNDER DEVELOPMENT !!!</h1>
-    </div>
+    <h3>Search Doctor for Online Consultation !</h3>
+<div class="bto">
+  <label class="lab" for="Specialist">Choose Specialist:</label>
+
+<select class="sle" name="specialist" id="specialist">
+  <option value="Psychiatry">Psychiatry</option>
+  <option value="Gynecology">Gynecology</option>
+  <option value="Pulmonology">Pulmonology</option>
+  <option value="Orthopedics">Orthopedics</option>
+  <option value="Pediatrics">Pediatrics</option>
+  <option value="Osteology">Osteology</option>
+</select>
+</div>
+
+<div class="bto">
+  <label class="lab" for="Language">Choose Language:</label>
+
+<select class="sle" name="language" id="language">
+  <option value="Tamil">Tamil</option>
+  <option value="English">English</option>
+  <option value="Malayalam">Malayalam</option>
+  <option value="Hindi">Hindi</option>
+</select>
+</div>
+
+<div class="bto">
+  <label class="lab " for="Gender">Choose Gender:</label>
+
+<select class="sle" name="gender" id="gender">
+  <option value="Male">Male</option>
+  <option value="Female">Female</option>
+</select>
+</div>
+
+<button class="btn has-before" >
+  <ion-icon name="search"></ion-icon>
+
+  <a href="./fetchdoctor.html" ><span class="span title-md"> Find Now</span></a>
+</button>
+
   </div>
 </section>
-
-
-
-
 
   <!-- 
     - #FOOTER
@@ -261,23 +297,15 @@
           </li>
 
           <li>
-            <a href="#" class="text footer-link">Conditions</a>
-          </li>
-
-          <li>
-            <a href="#" class="text footer-link">Contact Us</a>
-          </li>
-
-          <li>
-            <a href="#" class="text footer-link">Terms of Use</a>
-          </li>
-
-          <li>
             <a href="pp.html" class="text footer-link">Privacy policy</a>
           </li>
 
           <li>
             <a href="#" class="text footer-link">Join as a Doctor</a>
+          </li>
+
+          <li>
+            <a href="#" class="text footer-link">Terms & Conditions</a>
           </li>
 
         </ul>

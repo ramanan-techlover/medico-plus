@@ -16,6 +16,8 @@
   -->
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
 
+  <script type="text/javascript" src="https://unpkg.com/webcam-easy@1.1.1/dist/webcam-easy.min.js"></script>
+
   <!-- 
     - google font link
   -->
@@ -37,7 +39,7 @@
 
 </head>
 
-<body id="top">
+<body id="top" style="background-color: rgb(203, 236, 230)">
 
   <!-- 
     - #PRELOADER
@@ -48,7 +50,7 @@
   </div>
 
 
-  <!-- 
+ <!-- 
     - #HEADER
   -->
 
@@ -140,35 +142,36 @@
 
 
 <!--Doctors-->
-
 <section class="section listing" aria-labelledby="listing-label" style="background-color: rgb(203, 236, 230)">
-  <div class="container-img">
+  <div class="container">
 
-    <div class="health-card">
-        <h1>GET YOUR HEALTH CARD NOW !!!</h1>
-    </div>
-    <img src="./assets/images/HELTH CARD.png" alt="" class="health">
-    <div class="para">
-    <p>Don't need to cary your past prescription to hospitals Just get the card and be happy !!! </p>
-    </div>
-    <div style="display: flex;
-    justify-content: center;
-    align-items: center; ">
-    <div class="btn has-before" style="text-align: center;    
-    width: 165px;     ">
-        <button type="submit">
-            <a href="./doctors.html"><span class="span title-md">Get Now !</span></a>
-        </button>
-    </div>  
-    </div>
-</div>
+
+<br>
+<div style="width: 100%;">
+  <div style="width: 400px; height: 200px; float: left; background: rgb(203, 236, 230); gap: 2px; border-radius: 5px;"> 
+    <video id="webCam" autoplay playsinlne width="400" height="200" style="border-radius: 5px;"></video>
+    <canvas id="canvas"></canvas>
+  </div>
+  <div style="margin-left: 400px; height: 200px; background: rgb(203, 236, 230); border-radius: 5px;"> 
+      <h4>Fetching Doctor...</h4>
+  </div>
+
+  <br>
+  <button class="btn has-before" >
+    <a href="#" onclick="cam()"><span class="span title-md"> Cancle Call</span></a>
+  </button>
+
+
+<script>
+  const webCamElement = document.getElementById("webCam");
+  const CanvasElement = document.getElementById("canvas");
+  const webcam = new Webcam(webCamElement, "user", CanvasElement);
+    webcam.start();
+</script>
+  </div>
 </section>
 
-
-
-
-
-   <!-- 
+  <!-- 
     - #FOOTER
   -->
 
@@ -352,8 +355,6 @@
 
     </div>
   </footer>
-
-
 
 
 

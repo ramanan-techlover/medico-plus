@@ -2,11 +2,50 @@
   #main.css
 \*-----------------------------------*/
 
-/**
- * copyright 2022 codewithsadee
- */
+/* Style for the container div */
+.bto {
+  margin-bottom: 15px; /* Adjust as needed */
+}
 
+/* Style for the labels */
+.lab {
+  display: block;
+  margin-bottom: 5px; /* Adjust as needed */
+  font-weight: bold;
+}
 
+/* Style for the select dropdown */
+.sle {
+  width: 100%; /* Adjust width as needed */
+  padding: 8px; /* Adjust padding as needed */
+  font-size: 16px; /* Adjust font size as needed */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Style for the dropdown options */
+.sle option {
+  font-size: 16px; /* Adjust font size as needed */
+  padding: 8px; /* Adjust padding as needed */
+}
+
+/* Style for hover effect on dropdown options */
+.sle option:hover {
+  background-color: #f2f2f2; /* Adjust color as needed */
+}
+
+/* Style for focus effect on dropdown options */
+.sle option:focus {
+  outline: none;
+  background-color: #e0e0e0; /* Adjust color as needed */
+}
+
+/* Style for selected option in dropdown */
+.sle option:checked {
+  background-color: #007bff; /* Adjust color as needed */
+  color: #fff;
+}
 
 
 
