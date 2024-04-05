@@ -9,7 +9,45 @@
   <!-- 
     - primary meta tags
   -->
-  <title>medico Plus - home</title>
+  <title>medico Plus - Doctors</title>
+  <style>
+    /* Style the input fields */
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem; /* Add some space between input fields */
+}
+
+/* Style the submit button */
+button[type="submit"] {
+  cursor: pointer;
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #4EA685;
+  color: #fff;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #57B894;
+}
+
+/* Style the form labels */
+label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+  </style>
   
   <!-- 
     - favicon
@@ -46,11 +84,6 @@
   <div class="preloader" data-preloader>
     <div class="circle"></div>
   </div>
-
-
-
-
-
 
  <!-- 
     - #HEADER
@@ -142,184 +175,90 @@
   </header>
 
 
-
 <!--Doctors-->
 
 <section class="section listing" aria-labelledby="listing-label" style="background-color: rgb(203, 236, 230)">
   <div class="container">
+    <h1>Join as a Doctor</h1>
+    <form id="inputForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="time">Time:</label>
+        <input type="text" id="time" name="time" required><br><br>
+        <label for="hours">Hours:</label>
+        <input type="text" id="hours" name="hours" required><br><br>
+        <label for="hospital">Hospital:</label>
+        <input type="text" id="hospital" name="hospital" required><br><br>
+        <button type="submit" onclick="">Submit</button>
+    </form>
 
-    <ul class="grid-list">
+    <div id="output"></div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAjsLazefPpgzxXZ1MLLQ5fKF5wciS3nAk",
+            authDomain: "medicoplus-cf268.firebaseapp.com",
+            projectId: "medicoplus-cf268",
+            storageBucket: "medicoplus-cf268.appspot.com",
+            messagingSenderId: "447701321867",
+            appId: "1:447701321867:web:826264e21378868146ec8e",
+            measurementId: "G-W9BY50R113"
+          };
+        firebase.initializeApp(firebaseConfig);
 
-      <li>
-        <p class="section-subtitle title-lg" id="listing-label" data-reveal="left">Doctors Listing</p>
+        const database = firebase.database();
 
-        <h2 class="headline-md" data-reveal="left">Pediatrics</h2>
-      </li>
+        const form = document.getElementById('inputForm');
+        const output = document.getElementById('output');
 
-      <li>
-        <div class="listing-card" data-reveal="bottom">
+        // Function to save data to Firebase
+        function saveData(name, time, hours, hospital) {
+            database.ref('inputs').push({
+                name: name,
+                time: time,
+                hours: hours,
+                hospital: hospital
+            });
+        }
 
-          <div class="card-icon">
-            <img src="./assets/images/Male Doc.png" width="71" height="71" loading="lazy" alt="icon">
-          </div>
+        // Function to retrieve data from Firebase and display it
+        function displayData() {
+            database.ref('inputs').on('value', function(snapshot) {
+                output.innerHTML = '';
+                snapshot.forEach(function(childSnapshot) {
+                    var data = childSnapshot.val();
+                    // Populate input fields with retrieved data
+                    document.getElementById('name').value = data.name;
+                    document.getElementById('time').value = data.time;
+                    document.getElementById('hours').value = data.hours;
+                    document.getElementById('hospital').value = data.hospital;
+                });
+            });
+        }
 
-          <div>
-            <h3 class="headline-sm card-title">Damon salvatore</h3>
+        // Submit form event listener
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = form.name.value;
+            const time = form.time.value;
+            const hours = form.hours.value;
+            const hospital = form.hospital.value;
+            saveData(name, time, hours, hospital);
+            form.reset();
+        });
 
-            <p class="card-text">Experience: 20 years</p>
-          </div>
+        // Call function to display data on page load
+        displayData();
 
-        </div>
-      </li>
-
-      <li>
-        <div class="listing-card" data-reveal="bottom">
-
-          <div class="card-icon">
-            <img src="./assets/images/Female Doc.png" width="71" height="71" loading="lazy" alt="icon">
-          </div>
-
-          <div>
-            <h3 class="headline-sm card-title">Lily salvatore</h3>
-
-            <p class="card-text">Experience: 3 years</p>
-          </div>
-
-        </div>
-      </li>
-
-      <li>
-        <div class="listing-card" data-reveal="bottom">
-
-          <div class="card-icon">
-            <img src="./assets/images/Male Doc.png" width="71" height="71" loading="lazy" alt="icon">
-          </div>
-
-          <div>
-            <h3 class="headline-sm card-title">Arumugam</h3>
-
-            <p class="card-text">Experience: 4 years</p>
-          </div>
-
-        </div>
-      </li>
-
-      <li>
-        <div class="listing-card" data-reveal="bottom">
-
-          <div class="card-icon">
-            <img src="./assets/images/Female Doc.png" width="71" height="71" loading="lazy" alt="icon">
-          </div>
-
-          <div>
-            <h3 class="headline-sm card-title">Suki Sundaram</h3>
-
-            <p class="card-text">Experience: 9 years</p>
-          </div>
-
-        </div>
-      </li>
-
-      <li>
-        <div class="listing-card" data-reveal="bottom">
-
-          <div class="card-icon">
-            <img src="./assets/images/Male Doc.png" width="71" height="71" loading="lazy" alt="icon">
-          </div>
-
-          <div>
-            <h3 class="headline-sm card-title">David patel</h3>
-
-            <p class="card-text">Experience: 4 years</p>
-          </div>
-
-        </div>
-      </li>
-
-      <li>
-        <div class="listing-card" data-reveal="bottom">
-
-          <div class="card-icon">
-            <img src="./assets/images/Male Doc.png" width="71" height="71" loading="lazy" alt="icon">
-          </div>
-
-          <div>
-            <h3 class="headline-sm card-title">Vinay</h3>
-
-            <p class="card-text">Experience: 0</p>
-          </div>
-
-        </div>
-      </li>
-
-      <li>
-          <div class="listing-card" data-reveal="bottom">
-
-            <div class="card-icon">
-              <img src="./assets/images/Male Doc.png" width="71" height="71" loading="lazy" alt="icon">
-            </div>
-
-            <div>
-              <h3 class="headline-sm card-title">Kol william</h3>
-
-              <p class="card-text">Experience: 2.5 years</p>
-            </div>
-
-          </div>
-        </li>
-
-        <li>
-          <div class="listing-card" data-reveal="bottom">
-
-            <div class="card-icon">
-              <img src="./assets/images/Female Doc.png" width="71" height="71" loading="lazy" alt="icon">
-            </div>
-
-            <div>
-              <h3 class="headline-sm card-title">Jessica</h3>
-
-              <p class="card-text">Experience: 7 years</p>
-            </div>
-
-          </div>
-        </li>
-
-        <li>
-          <div class="listing-card" data-reveal="bottom">
-
-            <div class="card-icon">
-              <img src="./assets/images/Male Doc.png" width="71" height="71" loading="lazy" alt="icon">
-            </div>
-
-            <div>
-              <h3 class="headline-sm card-title">Mark abdul</h3>
-
-              <p class="card-text">Experience: 4 years</p>
-            </div>
-
-          </div>
-        </li>
-
-        <li>
-          <div class="listing-card" data-reveal="bottom">
-
-            <div class="card-icon">
-              <img src="./assets/images/Female Doc.png" width="71" height="71" loading="lazy" alt="icon">
-            </div>
-
-            <div>
-              <h3 class="headline-sm card-title">Lisa dobrev</h3>
-
-              <p class="card-text">Experience: 1.5 years</p>
-            </div>
-
-          </div>
-        </li>
-
-    </ul>
-
+    </script>
   </div>
 </section>
+
 
 
 
@@ -510,6 +449,7 @@
 
     </div>
   </footer>
+
 
 
 
